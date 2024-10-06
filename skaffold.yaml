@@ -22,23 +22,23 @@ build:
   # must provide a "default repo" using one of the methods described
   # here:
   # https://skaffold.dev/docs/concepts/#image-repository-handling
-  - image: emailservice
+  - image: ghcr.io/olusesa/e-shop-microservices/emailservice
     context: src/emailservice
-  - image: productcatalogservice
+  - image: ghcr.io/olusesa/e-shop-microservices/productcatalogservice
     context: src/productcatalogservice
-  - image: recommendationservice
+  - image: ghcr.io/olusesa/e-shop-microservices/recommendationservice
     context: src/recommendationservice
-  - image: shoppingassistantservice
+  - image: ghcr.io/olusesa/e-shop-microservices/shoppingassistantservice
     context: src/shoppingassistantservice
-  - image: shippingservice
+  - image: ghcr.io/olusesa/e-shop-microservices/shippingservice
     context: src/shippingservice
-  - image: checkoutservice
+  - image: ghcr.io/olusesa/e-shop-microservices/checkoutservice
     context: src/checkoutservice
-  - image: paymentservice
+  - image: ghcr.io/olusesa/e-shop-microservices/paymentservice
     context: src/paymentservice
-  - image: currencyservice
+  - image: ghcr.io/olusesa/e-shop-microservices/currencyservice
     context: src/currencyservice
-  - image: cartservice
+  - image: ghcr.io/olusesa/e-shop-microservices/cartservice
     context: src/cartservice/src
     docker:
       dockerfile: Dockerfile
@@ -100,17 +100,17 @@ requires:
   - app
 build:
   artifacts:
-  - image: loadgenerator
+  - image: ghcr.io/olusesa/e-shop-microservices/loadgenerator
     context: src/loadgenerator
 manifests:
   rawYaml:
   - ./kubernetes-manifests/loadgenerator.yaml
 deploy:
   kubectl: {}
-profiles:
-- name: gcb
-  build:
-    googleCloudBuild:
-      diskSizeGb: 300
-      machineType: N1_HIGHCPU_32
-      timeout: 4000s
+# profiles:
+# - name: gcb
+#   build:
+#     googleCloudBuild:
+#       diskSizeGb: 300
+#       machineType: N1_HIGHCPU_32
+#       timeout: 4000s
